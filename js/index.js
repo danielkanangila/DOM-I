@@ -103,4 +103,8 @@ mainContentEl.querySelector('.bottom-content')
         break;
       default:
     }
-  })
+  });
+
+  // Added text content to footer
+  document.querySelector('footer')
+    .querySelector('p').textContent = siteContent.footer.copyright;
