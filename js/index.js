@@ -42,16 +42,25 @@ let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"]);
 
 // Select nav and sections in the dom and store elements in const
-const navItems = document.querySelector('nav').querySelectorAll('a');
+const nav = document.querySelector('nav');
+const navItems = nav.querySelectorAll('a');
 const ctaEl = document.querySelector('section.cta');
 const mainContentEl = document.querySelector('section.main-content');
 const contactEl = document.querySelector('section.contact');
 
 // Added text to nav items
 navItems.forEach((itemEl, i) => itemEl.text = siteContent.nav[`nav-item-${i+1}`]);
-const a = document.createElement('a');
-a.text = 'Test'
-document.querySelector('nav').appendChild(a)
+
+// Added new Items to nav\
+const newNavItems = ['home', 'Sign Up'].map(name => {
+  const a = document.createElement('a');
+  a.text =  name;
+  a.href = '#';
+  return a;
+}).forEach((item, index) => (index == 0) 
+  ? nav.prepend(item)
+  : nav.appendChild(item)
+);
 
 // Added text content and img src .cta section
 ctaEl.querySelector('h1').textContent = siteContent.cta['h1'];
