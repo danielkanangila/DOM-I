@@ -49,8 +49,10 @@ const mainContentEl = document.querySelector('section.main-content');
 const contactEl = document.querySelector('section.contact');
 
 // Added text to nav items and change style color
-navItems.forEach((itemEl, i) => itemEl.text = siteContent.nav[`nav-item-${i+1}`]);
-navItems.forEach(item => item.style = "color: green;")
+navItems.forEach((itemEl, i) => {
+  itemEl.text = siteContent.nav[`nav-item-${i+1}`];
+  itemEl.style = "color: green;"
+});
 
 // Added new Items to nav
 const newNavItems = ['home', 'Sign Up'].map(name => {
