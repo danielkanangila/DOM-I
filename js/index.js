@@ -40,23 +40,25 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"]);
- 
-// Added text to nav items
+
+// Select nav and sections in the dom and store elements in const
 const navItems = document.querySelector('nav').querySelectorAll('a');
+const ctaEl = document.querySelector('section.cta');
+const mainContentEl = document.querySelector('section.main-content');
+const contactEl = document.querySelector('section.contact');
+
+// Added text to nav items
 navItems.forEach((itemEl, i) => itemEl.text = siteContent.nav[`nav-item-${i+1}`]);
 const a = document.createElement('a');
 a.text = 'Test'
 document.querySelector('nav').appendChild(a)
 
-// Updated .cta section
-const ctaEl = document.querySelector('section.cta');
+// Added text content and img src .cta section
 ctaEl.querySelector('h1').textContent = siteContent.cta['h1'];
 ctaEl.querySelector('button').textContent = siteContent.cta['button'];
-ctaEl.querySelector('img').src = siteContent.cta['img-src'];
+ctaEl.querySelector('#cta-img').src = siteContent.cta['img-src'];
 
-// select main content element and
 // added text content to .top-content
-const mainContentEl = document.querySelector('section.main-content');
 mainContentEl.querySelector('.top-content')
   .querySelectorAll('.text-content').forEach((item, index) => {
      if (index == 0){
@@ -69,7 +71,7 @@ mainContentEl.querySelector('.top-content')
   })
 
 // Added src .middle-img in main-content section
-mainContentEl.querySelector('.middle-img').src = siteContent['main-content']['middle-img-src'];
+mainContentEl.querySelector('#middle-img').src = siteContent['main-content']['middle-img-src'];
 
 // Added Text content to .bottom-content's
 mainContentEl.querySelector('.bottom-content')
@@ -86,9 +88,7 @@ mainContentEl.querySelector('.bottom-content')
     }
   });
 
-  // Select contact element and
   // added text content to contact element
-  const contactEl = document.querySelector('section.contact');
   contactEl.querySelector('h4').textContent = siteContent.contact['contact-h4'];
   contactEl.querySelectorAll('p').forEach((item, index) => {
     switch(index) {
