@@ -44,9 +44,9 @@ logo.setAttribute('src', siteContent["nav"]["img-src"]);
 // Update nav items
 const navItems = document.querySelector('nav').querySelectorAll('a');
 navItems.forEach((itemEl, i) => itemEl.text = siteContent.nav[`nav-item-${i+1}`]);
-//const a = document.createElement('a');
-//a.text = 'Test'
-//document.querySelector('nav').appendChild(a)
+const a = document.createElement('a');
+a.text = 'Test'
+document.querySelector('nav').appendChild(a)
 
 // Updated .cta section
 const ctaEl = document.querySelector('section.cta');
@@ -65,6 +65,8 @@ mainContentEl.querySelector('.top-content')
     } else {
       item.querySelector('h4').textContent = siteContent['main-content']['about-h4'];
       item.querySelector('p').textContent = siteContent['main-content']['about-content'];
-
      }
   })
+
+// Updated .middle-img in main-content section
+mainContentEl.querySelector('.middle-img').src = siteContent['main-content']['middle-img-src'];
