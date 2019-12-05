@@ -41,7 +41,7 @@ const siteContent = {
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"]);
  
-// Update nav items
+// Added text to nav items
 const navItems = document.querySelector('nav').querySelectorAll('a');
 navItems.forEach((itemEl, i) => itemEl.text = siteContent.nav[`nav-item-${i+1}`]);
 const a = document.createElement('a');
@@ -54,8 +54,8 @@ ctaEl.querySelector('h1').textContent = siteContent.cta['h1'];
 ctaEl.querySelector('button').textContent = siteContent.cta['button'];
 ctaEl.querySelector('img').src = siteContent.cta['img-src'];
 
-// Updated section .main-content
-
+// Create main content element 
+// Added text content to .top-content
 const mainContentEl = document.querySelector('section.main-content');
 mainContentEl.querySelector('.top-content')
   .querySelectorAll('.text-content').forEach((item, index) => {
@@ -68,5 +68,20 @@ mainContentEl.querySelector('.top-content')
      }
   })
 
-// Updated .middle-img in main-content section
+// Added src .middle-img in main-content section
 mainContentEl.querySelector('.middle-img').src = siteContent['main-content']['middle-img-src'];
+
+// Added Text content to .bottom-content's
+mainContentEl.querySelector('.bottom-content')
+  .querySelectorAll('.text-content').forEach((item, index) => {
+     if (index == 0){
+      item.querySelector('h4').textContent = siteContent['main-content']['services-h4'];
+      item.querySelector('p').textContent = siteContent['main-content']['services-content'];
+    } else if (index == 2) {
+      item.querySelector('h4').textContent = siteContent['main-content']['product-h4'];
+      item.querySelector('p').textContent = siteContent['main-content']['product-content'];
+    } else {
+      item.querySelector('h4').textContent = siteContent['main-content']['vision-h4'];
+      item.querySelector('p').textContent = siteContent['main-content']['vision-content'];
+    }
+  })
