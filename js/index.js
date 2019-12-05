@@ -54,8 +54,8 @@ ctaEl.querySelector('h1').textContent = siteContent.cta['h1'];
 ctaEl.querySelector('button').textContent = siteContent.cta['button'];
 ctaEl.querySelector('img').src = siteContent.cta['img-src'];
 
-// Create main content element 
-// Added text content to .top-content
+// select main content element and
+// added text content to .top-content
 const mainContentEl = document.querySelector('section.main-content');
 mainContentEl.querySelector('.top-content')
   .querySelectorAll('.text-content').forEach((item, index) => {
@@ -83,5 +83,24 @@ mainContentEl.querySelector('.bottom-content')
     } else {
       item.querySelector('h4').textContent = siteContent['main-content']['vision-h4'];
       item.querySelector('p').textContent = siteContent['main-content']['vision-content'];
+    }
+  });
+
+  // Select contact element and
+  // added text content to contact element
+  const contactEl = document.querySelector('section.contact');
+  contactEl.querySelector('h4').textContent = siteContent.contact['contact-h4'];
+  contactEl.querySelectorAll('p').forEach((item, index) => {
+    switch(index) {
+      case 0:
+        item.textContent = siteContent.contact.address;
+        break;
+      case 1:
+        item.textContent = siteContent.contact.phone;
+        break;
+      case 2:
+        item.textContent = siteContent.contact.email;
+        break;
+      default:
     }
   })
