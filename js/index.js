@@ -48,14 +48,16 @@ const ctaEl = document.querySelector('section.cta');
 const mainContentEl = document.querySelector('section.main-content');
 const contactEl = document.querySelector('section.contact');
 
-// Added text to nav items
+// Added text to nav items and change style color
 navItems.forEach((itemEl, i) => itemEl.text = siteContent.nav[`nav-item-${i+1}`]);
+navItems.forEach(item => item.style = "color: green;")
 
-// Added new Items to nav\
+// Added new Items to nav
 const newNavItems = ['home', 'Sign Up'].map(name => {
   const a = document.createElement('a');
   a.text =  name;
   a.href = '#';
+  a.style = "color: green;";
   return a;
 }).forEach((item, index) => (index == 0) 
   ? nav.prepend(item)
