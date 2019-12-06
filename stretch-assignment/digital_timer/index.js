@@ -1,0 +1,1 @@
+const secondTens = document.querySelector('#secondTens');

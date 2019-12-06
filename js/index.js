@@ -55,16 +55,16 @@ navItems.forEach((itemEl, i) => {
 });
 
 // Added new Items to nav
-const newNavItems = ['home', 'Sign Up'].map(name => {
+const newNavItems = ['Home', 'Timer'].map(name => {
   const a = document.createElement('a');
   a.text =  name;
   a.href = '#';
   a.style = "color: green;";
   return a;
-}).forEach((item, index) => (index == 0) 
-  ? nav.prepend(item)
-  : nav.appendChild(item)
-);
+}).forEach((item, index) => {
+  if (index == 0) { nav.prepend(item) }
+  else { item.href= '/stretch-assignment/digital_timer'; nav.appendChild(item)}
+});
 
 // Added text content and img src .cta section
 ctaEl.querySelector('h1').textContent = siteContent.cta['h1'];
@@ -121,3 +121,8 @@ mainContentEl.querySelector('.bottom-content')
   // Added text content to footer
   document.querySelector('footer')
     .querySelector('p').textContent = siteContent.footer.copyright;
+
+  // Stretch goal
+  // Update nav header style
+  const header = document.querySelector('header');
+  header.style = 'border-bottom: 1px solid #ccc;padding-bottom:15px;'
