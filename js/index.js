@@ -39,4 +39,90 @@ const siteContent = {
 
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+logo.setAttribute('src', siteContent["nav"]["img-src"]);
+
+// Select nav and sections in the dom and store elements in const
+const nav = document.querySelector('nav');
+const navItems = nav.querySelectorAll('a');
+const ctaEl = document.querySelector('section.cta');
+const mainContentEl = document.querySelector('section.main-content');
+const contactEl = document.querySelector('section.contact');
+
+// Added text to nav items and change style color
+navItems.forEach((itemEl, i) => {
+  itemEl.text = siteContent.nav[`nav-item-${i+1}`];
+  itemEl.style = "color: green;"
+});
+
+// Added new Items to nav
+const newNavItems = ['Home', 'Timer'].map(name => {
+  const a = document.createElement('a');
+  a.text =  name;
+  a.href = '#';
+  a.style = "color: green;";
+  return a;
+}).forEach((item, index) => {
+  if (index == 0) { nav.prepend(item) }
+  else { item.href= '/stretch-assignment/digital_timer'; nav.appendChild(item)}
+});
+
+// Added text content and img src .cta section
+ctaEl.querySelector('h1').textContent = siteContent.cta['h1'];
+ctaEl.querySelector('button').textContent = siteContent.cta['button'];
+ctaEl.querySelector('#cta-img').src = siteContent.cta['img-src'];
+
+// added text content to .top-content
+mainContentEl.querySelector('.top-content')
+  .querySelectorAll('.text-content').forEach((item, index) => {
+     if (index == 0){
+      item.querySelector('h4').textContent = siteContent['main-content']['features-h4'];
+      item.querySelector('p').textContent = siteContent['main-content']['features-content'];
+    } else {
+      item.querySelector('h4').textContent = siteContent['main-content']['about-h4'];
+      item.querySelector('p').textContent = siteContent['main-content']['about-content'];
+     }
+  })
+
+// Added src .middle-img in main-content section
+mainContentEl.querySelector('#middle-img').src = siteContent['main-content']['middle-img-src'];
+
+// Added Text content to .bottom-content's
+mainContentEl.querySelector('.bottom-content')
+  .querySelectorAll('.text-content').forEach((item, index) => {
+     if (index == 0){
+      item.querySelector('h4').textContent = siteContent['main-content']['services-h4'];
+      item.querySelector('p').textContent = siteContent['main-content']['services-content'];
+    } else if (index == 2) {
+      item.querySelector('h4').textContent = siteContent['main-content']['product-h4'];
+      item.querySelector('p').textContent = siteContent['main-content']['product-content'];
+    } else {
+      item.querySelector('h4').textContent = siteContent['main-content']['vision-h4'];
+      item.querySelector('p').textContent = siteContent['main-content']['vision-content'];
+    }
+  });
+
+  // added text content to contact element
+  contactEl.querySelector('h4').textContent = siteContent.contact['contact-h4'];
+  contactEl.querySelectorAll('p').forEach((item, index) => {
+    switch(index) {
+      case 0:
+        item.textContent = siteContent.contact.address;
+        break;
+      case 1:
+        item.textContent = siteContent.contact.phone;
+        break;
+      case 2:
+        item.textContent = siteContent.contact.email;
+        break;
+      default:
+    }
+  });
+
+  // Added text content to footer
+  document.querySelector('footer')
+    .querySelector('p').textContent = siteContent.footer.copyright;
+
+  // Stretch goal
+  // Update nav header style
+  const header = document.querySelector('header');
+  header.style = 'border-bottom: 1px solid #ccc;padding-bottom:15px;'
